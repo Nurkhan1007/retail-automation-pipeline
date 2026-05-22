@@ -6,12 +6,13 @@ import configparser
 from logger import setup_logging, cleanup_logs
 from dotenv import load_dotenv
 
-load_dotenv()
+
 
 logger = setup_logging()
 cleanup_logs()
 
 parent_dir = os.path.dirname(os.path.dirname(__file__))
+load_dotenv(os.path.join(parent_dir, '.env'))
 data_path = os.path.join(parent_dir, "data")
 
 if not os.path.exists(data_path):
